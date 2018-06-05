@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table()
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +28,6 @@ public class Address implements Serializable{
     private Double longitude;
     @Column(name = "default")
     private Boolean defaultAddress;
+
+
 }
