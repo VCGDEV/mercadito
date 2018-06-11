@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table
@@ -26,4 +27,11 @@ public class PurchaseOrder implements Serializable{
     private Date deliverDate;
     private Integer orderRate;
     private Double total;
+    @OneToOne(mappedBy = "purchaseOrder",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Ticket ticket;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
+    @JoinColumn(name = "addressId")
+    private Address address;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "purchaseOrder")
+    private Set<PurchaseDetail> details;
 }

@@ -28,6 +28,4 @@ public class Address implements Serializable{
     private Double longitude;
     @Column(name = "default")
     private Boolean defaultAddress;
-
-
 }

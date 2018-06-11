@@ -20,4 +20,10 @@ public class PurchaseDetail implements Serializable{
     private Long purchaseDetailId;
     private Double quantity;
     private Double price;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "purchaseOrderId")
+    private PurchaseOrder purchaseOrder;
+    @OneToOne(cascade = CascadeType.DETACH,fetch = FetchType.LAZY)
+    @JoinColumn(name="productId")
+    private Product product;
 }
