@@ -27,5 +27,11 @@ public class Product implements Serializable{
     private Boolean active;
     private Double priceCustomer;
     private Double priceOnSale;
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "attachment_id")
+    private Attachments attachment;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private ProductCategory productCategory;
 
 }

@@ -20,4 +20,8 @@ public class Attachments implements Serializable{
     private Long attachmentId;
     private String contentType;
     private byte[] content;
+    @OneToOne(fetch = FetchType.LAZY,mappedBy ="attachment")
+    private Product product;
+    @OneToOne(fetch = FetchType.LAZY,mappedBy ="attachment")
+    private ProductCategory productCategory;
 }
