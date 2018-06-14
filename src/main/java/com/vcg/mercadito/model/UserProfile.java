@@ -21,4 +21,6 @@ public class UserProfile implements Serializable{
     private Double rate;
     private byte[] imageProfile;
     private String imageType;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "userProfile")
+    private UserApp userApp;
 }

@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table
@@ -20,4 +21,8 @@ public class GeographicZone implements Serializable{
     private Long greographicZoneId;
     private String name;
     private String geofencePoints;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "geographicZone",cascade = CascadeType.ALL)
+    private Set<UserApp> userApps;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "geographicZone",cascade = CascadeType.ALL)
+    private Set<Address> addresses;
 }

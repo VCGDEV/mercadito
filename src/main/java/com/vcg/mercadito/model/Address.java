@@ -28,4 +28,10 @@ public class Address implements Serializable{
     private Double longitude;
     @Column(name = "default")
     private Boolean defaultAddress;
+    @ManyToOne(cascade = CascadeType.ALL,fetch =FetchType.LAZY)
+    @JoinColumn(name = "userAppId")
+    private UserApp userApp;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name="geographic_zone_id")
+    private GeographicZone geographicZone;
 }

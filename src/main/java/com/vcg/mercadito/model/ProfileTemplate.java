@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table
@@ -19,4 +20,6 @@ public class ProfileTemplate implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long profileTemplateId;
     private String profileName;
+    @OneToMany(mappedBy = "profileTemplate",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Set<UserApp> userApps;
 }
