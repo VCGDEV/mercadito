@@ -32,7 +32,7 @@ public class UserApp implements Serializable{
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "geographic_zone_id",nullable = true)
+    @JoinColumn(name = "geographic_zone_id")
     private GeographicZone geographicZone;
     @OneToMany(mappedBy = "userApp",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Address> addresses;

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table()
+@Table(name = "address")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +29,7 @@ public class Address implements Serializable{
     @Column(name = "default")
     private Boolean defaultAddress;
     @ManyToOne(cascade = CascadeType.ALL,fetch =FetchType.LAZY)
-    @JoinColumn(name = "userAppId")
+    @JoinColumn(name = "user_app_id")
     private UserApp userApp;
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name="geographic_zone_id")
